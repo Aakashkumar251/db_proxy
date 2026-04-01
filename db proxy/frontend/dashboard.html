@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - DB Proxy Shield</title>
+    <link rel="stylesheet" href="css/dashboard.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div id="navbar"></div>
+
+    <div class="dashboard-container">
+        <div class="sidebar">
+            <div class="sidebar-menu">
+                <a href="#" class="menu-item active" data-tab="query">
+                    <i class="fas fa-terminal"></i>
+                    <span>Execute Query</span>
+                </a>
+                <a href="#" class="menu-item" data-tab="history">
+                    <i class="fas fa-history"></i>
+                    <span>Query History</span>
+                </a>
+                <a href="#" class="menu-item" data-tab="logs">
+                    <i class="fas fa-file-alt"></i>
+                    <span>Company Logs</span>
+                </a>
+                <a href="#" class="menu-item" data-tab="analytics">
+                    <i class="fas fa-chart-bar"></i>
+                    <span>Analytics</span>
+                </a>
+            </div>
+        </div>
+
+        <div class="main-content">
+            <!-- Query Tab -->
+            <div class="tab-content active" id="query-tab">
+                <div class="query-section">
+                    <h2><i class="fas fa-database"></i> Execute Database Query</h2>
+                    <div class="query-info">
+                        <i class="fas fa-info-circle"></i>
+                        <p>Enter your SQL query below. The proxy will validate it for safety before execution.</p>
+                    </div>
+                    
+                    <div class="query-input-group">
+                        <label>SQL Query:</label>
+                        <textarea id="queryInput" class="query-input" placeholder="SELECT * FROM users WHERE id = 1;"></textarea>
+                    </div>
+
+                    <div class="query-actions">
+                        <button id="executeBtn" class="btn-execute">
+                            <i class="fas fa-play"></i> Execute Query
+                        </button>
+                        <button id="clearBtn" class="btn-clear">
+                            <i class="fas fa-eraser"></i> Clear
+                        </button>
+                    </div>
+
+                    <div class="result-section">
+                        <h3><i class="fas fa-chart-simple"></i> Query Result</h3>
+                        <div id="queryResult" class="query-result">
+                            <div class="placeholder">
+                                <i class="fas fa-code"></i>
+                                <p>Your query results will appear here</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- History Tab -->
+            <div class="tab-content" id="history-tab">
+                <div class="history-section">
+                    <h2><i class="fas fa-history"></i> User Query History</h2>
+                    <div id="historyList" class="history-list">
+                        <div class="placeholder">
+                            <i class="fas fa-clock"></i>
+                            <p>No queries executed yet</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Company Logs Tab -->
+            <div class="tab-content" id="logs-tab">
+                <div class="logs-section">
+                    <h2><i class="fas fa-building"></i> Company Query Logs</h2>
+                    <div class="logs-filters">
+                        <input type="text" id="logSearch" placeholder="Search logs..." class="search-input">
+                        <select id="logFilter" class="filter-select">
+                            <option value="all">All Queries</option>
+                            <option value="safe">Safe Queries</option>
+                            <option value="unsafe">Unsafe Queries</option>
+                        </select>
+                        <button id="refreshLogs" class="btn-refresh">
+                            <i class="fas fa-sync-alt"></i> Refresh
+                        </button>
+                    </div>
+                    <div id="companyLogs" class="logs-list">
+                        <div class="placeholder">
+                            <i class="fas fa-file-alt"></i>
+                            <p>Loading company logs...</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Analytics Tab -->
+            <div class="tab-content" id="analytics-tab">
+                <div class="analytics-section">
+                    <h2><i class="fas fa-chart-line"></i> Query Analytics</h2>
+                    <div class="stats-grid">
+                        <div class="stat-card">
+                            <i class="fas fa-check-circle"></i>
+                            <div class="stat-info">
+                                <h3>Safe Queries</h3>
+                                <p id="safeCount">0</p>
+                            </div>
+                        </div>
+                        <div class="stat-card">
+                            <i class="fas fa-times-circle"></i>
+                            <div class="stat-info">
+                                <h3>Blocked Queries</h3>
+                                <p id="blockedCount">0</p>
+                            </div>
+                        </div>
+                        <div class="stat-card">
+                            <i class="fas fa-chart-simple"></i>
+                            <div class="stat-info">
+                                <h3>Total Queries</h3>
+                                <p id="totalCount">0</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="chart-container">
+                        <canvas id="queryChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="footer"></div>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="js/dashboard.js"></script>
+    <script src="js/script.js"></script>
+</body>
+</html>

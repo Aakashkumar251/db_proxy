@@ -1,0 +1,30 @@
+{
+  "name": "db-proxy-shield",
+  "version": "1.0.0",
+  "description": "Database Proxy Shield - Secure Database Query Proxy System",
+  "main": "backend/server.js",
+  "scripts": {
+    "start": "node backend/server.js",
+    "dev": "nodemon backend/server.js",
+    "setup-db": "mysql -u root -p < setup-database.sql",
+    "install-all": "npm install express cors mysql2 dotenv nodemon"
+  },
+  "keywords": [
+    "database",
+    "proxy",
+    "security",
+    "sql-injection",
+    "monitoring"
+  ],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "cors": "^2.8.6",
+    "dotenv": "^16.6.1",
+    "express": "^4.22.1",
+    "mysql2": "^3.20.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.14"
+  }
+}

@@ -1,0 +1,19 @@
+2026-04-01T12:45:20.340Z - SELECT * FROM users;
+2026-04-01T12:45:22.052Z - 
+2026-04-01T12:45:23.001Z - 
+2026-04-01T12:45:23.840Z - 
+2026-04-01T12:45:24.860Z - 
+2026-04-01T12:51:32.840Z - select * from users
+2026-04-01T12:51:59.673Z - select * from users;
+{"timestamp":"2026-04-01T13:16:39.606Z","user":"current_user","query":"select * from users;","status":"unsafe","message":"Query blocked: Contains dangerous pattern ;"}
+{"type":"query_execution","timestamp":"2026-04-01T13:16:39.611Z","user":"current_user","query":"select * from users;","result":"failed","message":"Query blocked: Contains dangerous pattern ;"}
+{"timestamp":"2026-04-01T13:17:21.857Z","user":"current_user","query":"select * from products;","status":"unsafe","message":"Query blocked: Contains dangerous pattern ;"}
+{"type":"query_execution","timestamp":"2026-04-01T13:17:21.884Z","user":"current_user","query":"select * from products;","result":"failed","message":"Query blocked: Contains dangerous pattern ;"}
+{"timestamp":"2026-04-01T13:17:48.282Z","user":"current_user","query":"SELECT * FROM products WHERE price > 100;","status":"unsafe","message":"Query blocked: Contains dangerous pattern ;"}
+{"type":"query_execution","timestamp":"2026-04-01T13:17:48.285Z","user":"current_user","query":"SELECT * FROM products WHERE price > 100;","result":"failed","message":"Query blocked: Contains dangerous pattern ;"}
+{"timestamp":"2026-04-01T13:18:00.878Z","user":"current_user","query":"SELECT * FROM products WHERE price > 100;","status":"unsafe","message":"Query blocked: Contains dangerous pattern ;"}
+{"type":"query_execution","timestamp":"2026-04-01T13:18:00.881Z","user":"current_user","query":"SELECT * FROM products WHERE price > 100;","result":"failed","message":"Query blocked: Contains dangerous pattern ;"}
+{"timestamp":"2026-04-01T13:21:29.891Z","user":"current_user","query":"select * from products;","status":"unsafe","message":"Query blocked: Contains dangerous pattern ;"}
+{"type":"query_execution","timestamp":"2026-04-01T13:21:29.893Z","user":"current_user","query":"select * from products;","result":"failed","message":"Query blocked: Contains dangerous pattern ;"}
+{"timestamp":"2026-04-01T13:22:16.436Z","user":"current_user","query":"select * from products","status":"safe","message":"Query is safe to execute"}
+{"type":"query_execution","timestamp":"2026-04-01T13:22:16.446Z","user":"current_user","query":"select * from products","result":"success","message":"Query executed successfully"}
